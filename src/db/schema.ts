@@ -11,6 +11,7 @@ import {
   doublePrecision,
   jsonb,
   timestamp,
+  timestamp,
 } from 'drizzle-orm/pg-core';
 
 /** Law firms / legal-aid orgs that access the platform. */
