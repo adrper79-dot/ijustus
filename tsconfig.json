@@ -12,7 +12,8 @@
     "types": [
       "@cloudflare/workers-types"
     ],
-    "noEmit": true
+    "noEmit": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"

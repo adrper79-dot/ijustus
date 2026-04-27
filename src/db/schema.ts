@@ -9,7 +9,6 @@ import {
   integer,
   boolean,
   doublePrecision,
-  timestamptz,
   jsonb,
 } from 'drizzle-orm/pg-core';
 
@@ -18,8 +17,8 @@ export const organizations = pgTable('organizations', {
   id:        uuid('id').primaryKey().defaultRandom(),
   name:      text('name').notNull(),
   plan:      text('plan').notNull().default('starter'),  // starter | pro | enterprise
-  createdAt: timestamptz('created_at').notNull().defaultNow(),
-  updatedAt: timestamptz('updated_at').notNull().defaultNow(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
 /** AI moot-court opponent / debt-collector simulator configurations. */
@@ -31,8 +30,8 @@ export const simulators = pgTable('simulators', {
   systemPrompt: text('system_prompt').notNull(),
   voiceId:      text('voice_id'),           // ElevenLabs voice
   active:       boolean('active').notNull().default(true),
-  createdAt:    timestamptz('created_at').notNull().defaultNow(),
-  updatedAt:    timestamptz('updated_at').notNull().defaultNow(),
+  createdAt:    timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt:    timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
 /** A live or replayed practice call session. */
@@ -44,6 +43,6 @@ export const callSessions = pgTable('call_sessions', {
   score:       doublePrecision('score'),       // 0–100 coach score computed post-session
   feedback:    text('feedback'),               // AI-generated coaching feedback
   durationSecs: integer('duration_secs'),
-  completedAt: timestamptz('completed_at'),
-  createdAt:   timestamptz('created_at').notNull().defaultNow(),
+  completedAt: timestamp('completed_at', { withTimezone: true }),
+  createdAt:   timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
