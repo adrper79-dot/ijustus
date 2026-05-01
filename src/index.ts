@@ -1,13 +1,13 @@
 import { Hono } from 'hono';
-import { FactoryBaseError, withErrorBoundary, toErrorResponse } from '@adrper79-dot/errors';
-import { sentryMiddleware } from '@adrper79-dot/monitoring';
-import { initAnalytics } from '@adrper79-dot/analytics';
-import { jwtMiddleware } from '@adrper79-dot/auth';
+import { FactoryBaseError, withErrorBoundary, toErrorResponse } from '@latimer-woods-tech/errors';
+import { sentryMiddleware } from '@latimer-woods-tech/monitoring';
+import { initAnalytics } from '@latimer-woods-tech/analytics';
+import { jwtMiddleware } from '@latimer-woods-tech/auth';
 import { organizationsRouter } from './routes/organizations.js';
 import { simulatorsRouter } from './routes/simulators.js';
 import { sessionsRouter } from './routes/sessions.js';
 import type { Env } from './env.js';
-import type { Analytics } from '@adrper79-dot/analytics';
+import type { Analytics } from '@latimer-woods-tech/analytics';
 
 declare module 'hono' {
   interface ContextVariableMap {

@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { eq } from 'drizzle-orm';
-import { createDb } from '@adrper79-dot/neon';
-import { NotFoundError, ValidationError } from '@adrper79-dot/errors';
+import { createDb } from '@latimer-woods-tech/neon';
+import { NotFoundError, ValidationError } from '@latimer-woods-tech/errors';
 import { organizations } from '../db/schema.js';
 import type { Env } from '../env.js';
 
